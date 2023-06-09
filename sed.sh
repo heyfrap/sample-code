@@ -21,3 +21,5 @@ find ./ -name "*.rb" -print | xargs sed -i '' -E 's/its\(\:(.*)\)[[:space:]]*\{[
 
 find ./ -name "*.rb" -print | xargs sed -i '' -E 's/its\(\:(.*)\)[[:space:]]*\{[[:space:]]*is_expected.to[[:space:]]*eq[[:space:]]*([0-9]+\s*(\+\s*[0-9]+)*)[[:space:]]*\}/it \{ is_expected.to have_attributes(\1: \2) \}/g'
 
+find ./ -name "*.rb" -print | xargs sed -i '' -E 's/its\(\:(.*)\)[[:space:]]*\{[[:space:]]*is_expected.to[[:space:]]*eq[[:space:]]*(.*)\}/it \{ is_expected.to have_attributes(\1: \2) \}/g'
+
