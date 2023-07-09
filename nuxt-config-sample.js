@@ -43,3 +43,23 @@ module.exports = {
 }
 
 
+export default {
+  build: {
+    babel: {
+      presets({ isServer }) {
+        return [
+          [
+            "@nuxt/babel-preset-app",
+            {
+              targets: isServer
+                ? { node: "current" }
+                : { browsers: ["defaults"] }
+            }
+          ]
+        ]
+      },
+      plugins: ["@babel/plugin-proposal-class-properties"]
+    }
+  }
+}
+
