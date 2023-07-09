@@ -27,3 +27,19 @@ module.exports = {
   }
 }
 
+module.exports = {
+  build: {
+    extend (config, { isDev, isClient }) {
+      // node_modulesの中の特定のパッケージをトランスパイル対象に含めます
+      config.module.rules.push({
+        test: /\.m?js$/,
+        exclude: /(node_modules\/(?!(sora-js-sdk)\/).*)/,
+        use: {
+          loader: 'babel-loader',
+        }
+      })
+    }
+  }
+}
+
+
